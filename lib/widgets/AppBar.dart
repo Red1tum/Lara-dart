@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:lara/data/User.dart';
+import 'package:lara/resources/Strings.dart';
+import 'package:lara/theme/Sizes.dart';
+import 'package:lara/theme/TextStyles.dart';
 
 class Appbar extends StatelessWidget {
-  const Appbar({super.key, required this.tabController});
+  const Appbar({super.key, required this.tabController, required this.user});
 
-  final tabController;
+  final User user;
+  
+  final TabController tabController;
 
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      elevation: 2,
+      //elevation: 2,
+      // looks cool
+      // forceElevated: true,
       pinned: true,
       floating: false,
       expandedHeight: 270,
@@ -22,26 +30,19 @@ class Appbar extends StatelessWidget {
         icon: const Icon(Icons.close),
         onPressed: () {},
       ),
-      titleTextStyle: const TextStyle(
-        color: Colors.black,
-        fontSize: 16,
-        fontFamily: 'SF Pro Text',
-        fontWeight: FontWeight.w500,
-        height: 0.08,
-        letterSpacing: -0.40,
-      ),
+      titleTextStyle: TextStyles.primary(Sizes.regular),
       bottom: TabBar(
         controller: tabController,
         indicatorSize: TabBarIndicatorSize.tab,
-        tabs: const <Widget>[
+        tabs: <Widget>[
           Tab(
             child: Text(
-              'Профиль',
+              Strings.profile,
             ),
           ),
           Tab(
             child: Text(
-              'Настройки',
+              Strings.settings,
             ),
           ),
         ],
@@ -68,20 +69,14 @@ class Appbar extends StatelessWidget {
                       )
                     ],
                   ),
-                  child: Image.asset("assets/images/avatar.png"),
+                  child: Image.asset(user.imageName),
                 ),
                 const SizedBox(
                   height: 30,
                 ),
-                const Text(
-                  'Екатерина',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 24,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
+                Text(user.name,
+                    textAlign: TextAlign.center,
+                    style: TextStyles.primaryBold(Sizes.largeHeader)),
                 const SizedBox(
                   height: 10,
                 ),

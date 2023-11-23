@@ -4,10 +4,16 @@
 // client factory, not familiar with common dart approach
 // on this).
 import 'package:lara/data/Subscription.dart';
+import 'package:lara/data/User.dart';
+import 'package:lara/resources/Images.dart';
 
 import 'RatesAndLimits.dart';
 
 class DataProvider {
+  User getUser() {
+    return User("assets/images/avatar.png", "Екатерина");
+  }
+  
   List<String> getInterests() {
     return [
       "Еда",
@@ -22,13 +28,13 @@ class DataProvider {
 
   List<Subscription> getUsersSubscriptions() {
     return [
-      const Subscription(
-          imageName: "assets/images/sber_prime.webp",
+      Subscription(
+          imageName: Images.sberPrime,
           name: "СберПрайм",
           nextPaymentDate: "9 июля",
           perMonthPayment: 199),
-      const Subscription(
-          imageName: "assets/images/percent_sign_filled.webp",
+      Subscription(
+          imageName: Images.percentSignFilled,
           name: "Переводы",
           nextPaymentDate: "21 августа",
           perMonthPayment: 199)
@@ -37,16 +43,16 @@ class DataProvider {
 
   List<RatesAndLimits> getRatesAndLimits() {
     return [
-      const RatesAndLimits(
-          imageName: "assets/images/speedometer.webp",
+      RatesAndLimits(
+          imageName: Images.speedometer,
           title: "Изменить суточный лимит",
           subtitle: "На платежи и переводы"),
-      const RatesAndLimits(
-          imageName: "assets/images/percent_sign.webp",
+      RatesAndLimits(
+          imageName: Images.percentSigh,
           title: "Переводы без комиссии",
           subtitle: "Показать остаток в этом месяце"),
-      const RatesAndLimits(
-          imageName: "assets/images/arrows_forward_back.webp",
+      RatesAndLimits(
+          imageName: Images.arrowsForwardBack,
           title: "Информация о тарифах и лимитах"),
     ];
   }

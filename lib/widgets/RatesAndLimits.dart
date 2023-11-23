@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:lara/resources/Images.dart';
+import 'package:lara/resources/Strings.dart';
+import 'package:lara/theme/Colors.dart';
+import 'package:lara/theme/Sizes.dart';
+import 'package:lara/theme/TextStyles.dart';
+import 'package:lara/widgets/SectionHeader.dart';
 
 import '../data/RatesAndLimits.dart';
 
@@ -9,64 +15,35 @@ class RatesAndLimitsItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // I think there's an issue with paddings
-    // TODO: fix paddings
     return Padding(
-        padding: EdgeInsets.only(right: 8),
+        padding: EdgeInsets.only(right: Sizes.rightPadding),
         child: GestureDetector(
             onTap: () {},
             child: Row(
               children: [
                 Image.asset(
                   item.imageName,
-                  width: 36,
-                  height: 36,
+                  width: Sizes.iconWidth,
+                  height: Sizes.iconHeight,
                 ),
                 const SizedBox(width: 12),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     if (item.subtitle != null) ...[
-                      Text(
-                        item.title,
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                          //height: 0.08,
-                          letterSpacing: -0.40,
-                        ),
-                      ),
-                      Text(
-                        item.subtitle!,
-                        style: TextStyle(
-                          color: Colors.black.withOpacity(0.550000011920929),
-                          fontSize: 14,
-                          fontFamily: 'SF Pro Text',
-                          fontWeight: FontWeight.w500,
-                          //height: 0.09,
-                          letterSpacing: -0.41,
-                        ),
-                      )
+                      Text(item.title, style: TextStyles.primary(Sizes.regular)),
+                      Text(item.subtitle!, style: TextStyles.secondary(Sizes.small))
                     ] else ...[
                       Center(
-                        child: Text(
-                          item.title,
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            //height: 0.08,
-                            letterSpacing: -0.40,
-                          ),
-                        ),
+                        child: Text(item.title, style: TextStyles.primary(Sizes.regular)),
                       )
                     ]
                   ],
                 ),
                 const Spacer(),
                 IconButton(
-                    onPressed: () {}, icon: Image.asset("assets/images/arrow_right.webp")
+                    onPressed: () {},
+                    icon: Image.asset(Images.arrowRight)
                 )
               ],
             )));
@@ -81,43 +58,22 @@ class RatesAndLimitsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.only(left: 16),
+        padding: EdgeInsets.only(left: Sizes.leftPadding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Тарифы и лимиты',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 20,
-                fontWeight: FontWeight.w700,
-                //height: 0.06,
-                letterSpacing: -0.70,
-              ),
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-            Text(
-              'Для операций в Сбербанк Онлайн',
-              style: TextStyle(
-                color: Colors.black.withOpacity(0.550000011920929),
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-                //height: 0.09,
-                letterSpacing: -0.42,
-              ),
-            ),
+            SectionHeader(title: Strings.ratesAndLimits, subtitle: Strings.ratesAndLimitsDescription),
             const SizedBox(
               height: 12,
             ),
             for (var (index, item) in list.indexed)
               if (index != list.length - 1) ...[
                 RatesAndLimitsItem(item: item),
-                const Divider(
+                Divider(
                   height: 10,
                   thickness: 1.5,
                   indent: 50,
+                  color: AppColor.divider,
                 )
               ] else
                 RatesAndLimitsItem(item: item)

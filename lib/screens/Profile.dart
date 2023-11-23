@@ -5,7 +5,6 @@ import 'package:lara/widgets/RatesAndLimits.dart';
 import 'package:lara/widgets/SubscriptionsList.dart';
 
 import '../widgets/AppBar.dart';
-import '../widgets/UsersSubscriptions.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -35,15 +34,17 @@ class _ProfileScreen extends State<ProfileScreen>
                   return [
                     Appbar(
                       tabController: _tabController,
+                      user: dataProvider.getUser()
                     )
                   ];
                 },
                 body: TabBarView(controller: _tabController, children: [
-                  ListView(physics: NeverScrollableScrollPhysics(), children: [
+                  ListView(physics: const NeverScrollableScrollPhysics(), children: [
+                    // some magic numbers here
                     const SizedBox(
                       height: 30,
                     ),
-                    UsersSubscriptions(
+                    SubscriptionList(
                         subscriptions: dataProvider.getUsersSubscriptions()),
                     const SizedBox(
                       height: 46,
