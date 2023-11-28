@@ -14,20 +14,18 @@ class SubscriptionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(right: Sizes.rightPadding),
+      padding: EdgeInsets.only(right: Sizes.subscriptionsPadding),
       child: ElevatedButton(
           onPressed: () {},
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 0, vertical: Sizes.basePadding),
+            padding: EdgeInsets.symmetric(vertical: Sizes.basePadding),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   children: [
                     Image.asset(subscription.imageName, width: Sizes.iconWidth, height: Sizes.iconHeight),
-                    const SizedBox(
-                      width: 13,
-                    ),
+                    const SizedBox(width: 13),
                     Text(subscription.name, style: TextStyles.primary(Sizes.regular))
                   ],
                 ),
@@ -50,25 +48,30 @@ class SubscriptionList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(left: Sizes.leftPadding),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SectionHeader(title: Strings.activeSubscriptions, subtitle: Strings.activeSubscriptionsDescription),
-          const SizedBox(height: 20),
-          SizedBox(
-              width: double.infinity,
-              height: 130,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: subscriptions.length,
-                  itemBuilder: (ctx, index) {
-                    return SubscriptionCard(subscription: subscriptions[index]);
-                  })
-          )
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: Sizes.leftPadding),
+          child: SectionHeader(title: Strings.activeSubscriptions, subtitle: Strings.activeSubscriptionsDescription),
+        ),
+        const SizedBox(height: 20),
+        SizedBox(
+            width: double.infinity,
+            height: Sizes.subscriptionListHeight,
+            child: Padding(
+              padding: EdgeInsets.only(left: Sizes.leftPadding),
+              child : ListView.builder(
+                scrollDirection: Axis.horizontal,
+                padding: EdgeInsets.only(bottom: Sizes.subscriptionBottomPadding),
+                itemCount: subscriptions.length,
+                itemBuilder: (ctx, index) {
+                  return SubscriptionCard(subscription: subscriptions[index]);
+                })
+            )
+        ),
+        const SizedBox(height: 10)
+      ],
     );
   }
 }

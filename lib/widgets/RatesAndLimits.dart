@@ -46,7 +46,9 @@ class RatesAndLimitsItem extends StatelessWidget {
                     icon: Image.asset(Images.arrowRight)
                 )
               ],
-            )));
+            )
+        )
+    );
   }
 }
 
@@ -70,9 +72,8 @@ class RatesAndLimitsList extends StatelessWidget {
               if (index != list.length - 1) ...[
                 RatesAndLimitsItem(item: item),
                 Divider(
-                  height: 10,
-                  thickness: 1.5,
-                  indent: 50,
+                  height: Sizes.dividerHeight,
+                  indent: Sizes.dividerRatesIndent,
                   color: AppColor.divider,
                 )
               ] else

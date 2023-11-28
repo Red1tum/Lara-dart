@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lara/data/DataProvider.dart';
+import 'package:lara/theme/Sizes.dart';
 import 'package:lara/widgets/Interests.dart';
 import 'package:lara/widgets/RatesAndLimits.dart';
 import 'package:lara/widgets/SubscriptionsList.dart';
@@ -38,24 +39,29 @@ class _ProfileScreen extends State<ProfileScreen>
                     )
                   ];
                 },
-                body: TabBarView(controller: _tabController, children: [
-                  ListView(physics: const NeverScrollableScrollPhysics(), children: [
-                    // some magic numbers here
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    SubscriptionList(
-                        subscriptions: dataProvider.getUsersSubscriptions()),
-                    const SizedBox(
-                      height: 46,
-                    ),
-                    RatesAndLimitsList(list: dataProvider.getRatesAndLimits()),
-                    const SizedBox(
-                      height: 34,
-                    ),
-                    Interests(interestsList: dataProvider.getInterests())
-                  ]),
-                  const Center(child: CircularProgressIndicator())
-                ]))));
+                body: TabBarView(
+                    controller: _tabController,
+                    children: [
+                      // Profile page
+                      ListView(
+                        physics: const NeverScrollableScrollPhysics(),
+                        children: [
+                          SizedBox(height: Sizes.elementsPadding),
+                          SubscriptionList(
+                            subscriptions: dataProvider.getUsersSubscriptions()
+                          ),
+                          SizedBox(height: Sizes.elementsPadding),
+                          RatesAndLimitsList(list: dataProvider.getRatesAndLimits()),
+                          SizedBox(height: Sizes.elementsPadding),
+                          Interests(interestsList: dataProvider.getInterests())
+                        ]
+                      ),
+                      // Settings Page 
+                      const Center(child: CircularProgressIndicator())
+                    ]
+                )
+            )
+        )
+    );
   }
 }

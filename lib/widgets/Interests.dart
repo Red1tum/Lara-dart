@@ -20,24 +20,28 @@ class _Interests extends State<Interests> {
   Widget build(BuildContext context) {
     return Padding(
         padding: EdgeInsets.symmetric(horizontal: Sizes.basePadding),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          SectionHeader(title: Strings.interests, subtitle: Strings.interestsDescription),
-          const SizedBox(height: 8),
-          Wrap(
-            spacing: 8,
+        child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              for (var interestKey in widget.interests.keys)
-                FilterChip(
-                  label: Text(interestKey, style: TextStyles.primary(Sizes.small)),
-                  selected: widget.interests[interestKey]!,
-                  onSelected: (bool selected) {
-                    setState(() {
-                      widget.interests[interestKey] = selected;
-                    });
-                  },
-                )
-            ],
-          )
-        ]));
+              SectionHeader(title: Strings.interests, subtitle: Strings.interestsDescription),
+              const SizedBox(height: 8),
+              Wrap(
+                spacing: Sizes.chipSpacing, 
+                children: [
+                  for (var interestKey in widget.interests.keys)
+                    FilterChip(
+                      label: Text(interestKey, style: TextStyles.primary(Sizes.small)), 
+                      selected: widget.interests[interestKey]!, 
+                      onSelected: (bool selected) {
+                        setState(() {
+                          widget.interests[interestKey] = selected;
+                        });
+                      },
+                    )
+                ],
+              )
+            ]
+        )
+    );
   }
 }

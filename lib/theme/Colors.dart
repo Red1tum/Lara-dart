@@ -16,5 +16,7 @@ class AppColor {
   static Color chipBackground = const Color.fromRGBO(0, 0, 0, 0.08);
   static Color chipSelected = const Color.fromRGBO(8, 166, 82, 0.75);
   
-
+  static Color profileShadow = const Color(0x7A1D1D25);
+  
+  static Color hoverOnPrimary = const Color.fromRGBO(8, 166, 82, 0.2);
 }

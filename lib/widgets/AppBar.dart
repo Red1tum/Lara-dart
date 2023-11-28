@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lara/data/User.dart';
 import 'package:lara/resources/Strings.dart';
+import 'package:lara/theme/Colors.dart';
 import 'package:lara/theme/Sizes.dart';
 import 'package:lara/theme/TextStyles.dart';
 
@@ -14,12 +15,9 @@ class Appbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      //elevation: 2,
-      // looks cool
-      // forceElevated: true,
       pinned: true,
       floating: false,
-      expandedHeight: 270,
+      expandedHeight: Sizes.appBarExpandedHeight,
       actions: [
         IconButton(
           icon: const Icon(Icons.logout),
@@ -54,17 +52,17 @@ class Appbar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Container(
-                  width: 110,
-                  height: 110,
+                  width: Sizes.profileImageWidth,
+                  height: Sizes.profileImageHeight,
                   decoration: ShapeDecoration(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(38),
+                      borderRadius: BorderRadius.circular(Sizes.profileImageRadius),
                     ),
-                    shadows: const [
+                    shadows: [
                       BoxShadow(
-                        color: Color(0x7A1D1D25),
+                        color: AppColor.profileShadow,
                         blurRadius: 24,
-                        offset: Offset(0, 16),
+                        offset: const Offset(0, 16),
                         spreadRadius: -16,
                       )
                     ],
@@ -76,11 +74,13 @@ class Appbar extends StatelessWidget {
                 ),
                 Text(user.name,
                     textAlign: TextAlign.center,
-                    style: TextStyles.primaryBold(Sizes.largeHeader)),
+                    style: TextStyles.primaryBold(Sizes.largeHeader)
+                ),
                 const SizedBox(
                   height: 10,
                 ),
-              ]),
+              ]
+          ),
         ),
       ),
     );

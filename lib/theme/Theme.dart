@@ -10,8 +10,8 @@ class AppTheme {
       chipTheme: ChipThemeData(
           labelStyle: TextStyles.primary(Sizes.small),
           shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
-              side: const BorderSide(width: 0, color: Colors.transparent)
+              borderRadius: BorderRadius.circular(Sizes.circledRectRadius),
+              side: const BorderSide(color: Colors.transparent)
           ),
           backgroundColor: AppColor.chipBackground,
           selectedColor: AppColor.chipSelected,
@@ -19,16 +19,25 @@ class AppTheme {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-              fixedSize: const Size(216, 130),
+              elevation: 4,
+              foregroundColor: AppColor.hoverOnPrimary,
+              surfaceTintColor: AppColor.primary,
+              fixedSize: Size(Sizes.subscriptionButtonWidth, Sizes.subscriptionButtonHeight),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(Sizes.mediumRadius),
               )
           ),
       ),
+      dividerTheme: DividerThemeData(
+        thickness: Sizes.dividerThickness,
+      ),
       appBarTheme: AppBarTheme(
-          iconTheme: IconThemeData(color: AppColor.icon)),
+          surfaceTintColor: AppColor.primary,
+          iconTheme: IconThemeData(color: AppColor.icon)
+      ),
       tabBarTheme: TabBarTheme(
           labelStyle: TextStyles.primary(Sizes.regular),
+          unselectedLabelStyle: TextStyles.secondary(Sizes.regular),
           labelColor: AppColor.primaryText,
           indicator: BoxDecoration(
               border: Border(

@@ -16,9 +16,7 @@ class SectionHeader extends StatelessWidget {
       children: [
         Text(title, style: TextStyles.primaryBold(Sizes.regularHeader)),
         SizedBox(height: Sizes.sectionPadding),
-        Text(subtitle,
-          style: TextStyles.secondary(Sizes.small)
-        )
+        Text(subtitle, style: TextStyles.secondary(Sizes.small))
       ],
     );
   }
