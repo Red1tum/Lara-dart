@@ -14,11 +14,11 @@ class SubscriptionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(right: Sizes.subscriptionsPadding),
+      padding: const EdgeInsets.only(right: Sizes.subscriptionsPadding),
       child: ElevatedButton(
           onPressed: () {},
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: Sizes.basePadding),
+            padding: const EdgeInsets.symmetric(vertical: Sizes.basePadding),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -30,10 +30,10 @@ class SubscriptionCard extends StatelessWidget {
                   ],
                 ),
                 Expanded(child: Container()),
-                Text('Платёж ${subscription.nextPaymentDate}',
-                    style: TextStyles.primary(Sizes.small)),
-                Text('${subscription.perMonthPayment.toInt()}₽ в месяц',
-                    style: TextStyles.secondary(Sizes.small))
+                Text('${Strings.payment} ${subscription.nextPaymentDate}',
+                    style: Theme.of(context).textTheme.titleMedium),
+                Text('${subscription.perMonthPayment.toInt()}₽ ${Strings.perMonth}',
+                    style: Theme.of(context).textTheme.titleSmall)
               ],
             ),
           )),
@@ -51,7 +51,7 @@ class SubscriptionList extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
+        const Padding(
           padding: EdgeInsets.symmetric(horizontal: Sizes.leftPadding),
           child: SectionHeader(title: Strings.activeSubscriptions, subtitle: Strings.activeSubscriptionsDescription),
         ),
@@ -60,10 +60,10 @@ class SubscriptionList extends StatelessWidget {
             width: double.infinity,
             height: Sizes.subscriptionListHeight,
             child: Padding(
-              padding: EdgeInsets.only(left: Sizes.leftPadding),
+              padding: const EdgeInsets.only(left: Sizes.leftPadding),
               child : ListView.builder(
                 scrollDirection: Axis.horizontal,
-                padding: EdgeInsets.only(bottom: Sizes.subscriptionBottomPadding),
+                padding: const EdgeInsets.only(bottom: Sizes.subscriptionBottomPadding),
                 itemCount: subscriptions.length,
                 itemBuilder: (ctx, index) {
                   return SubscriptionCard(subscription: subscriptions[index]);

@@ -28,12 +28,12 @@ class DataProvider {
 
   List<Subscription> getUsersSubscriptions() {
     return [
-      Subscription(
+      const Subscription(
           imageName: Images.sberPrime,
           name: "СберПрайм",
           nextPaymentDate: "9 июля",
           perMonthPayment: 199),
-      Subscription(
+      const Subscription(
           imageName: Images.percentSignFilled,
           name: "Переводы",
           nextPaymentDate: "21 августа",
@@ -43,15 +43,15 @@ class DataProvider {
 
   List<RatesAndLimits> getRatesAndLimits() {
     return [
-      RatesAndLimits(
+      const RatesAndLimits(
           imageName: Images.speedometer,
           title: "Изменить суточный лимит",
           subtitle: "На платежи и переводы"),
-      RatesAndLimits(
+      const RatesAndLimits(
           imageName: Images.percentSigh,
           title: "Переводы без комиссии",
           subtitle: "Показать остаток в этом месяце"),
-      RatesAndLimits(
+      const RatesAndLimits(
           imageName: Images.arrowsForwardBack,
           title: "Информация о тарифах и лимитах"),
     ];

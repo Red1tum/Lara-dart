@@ -1,4 +1,4 @@
 class Fonts {
-  static String SfProDisplay = 'SF Pro Display';
-  static String SfProText = 'SF Pro Text';
+  static const String SfProDisplay = 'SF Pro Display';
+  static const String SfProText = 'SF Pro Text';
 }

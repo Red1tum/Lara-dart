@@ -7,6 +7,17 @@ import 'Colors.dart';
 
 class AppTheme {
   static ThemeData themeData = ThemeData(
+      textTheme: TextTheme(
+        labelMedium: TextStyles.primary(16),
+        labelSmall: TextStyles.primary(14),
+        titleLarge: TextStyles.primary(16),
+        titleMedium: TextStyles.primary(14),
+        titleSmall: TextStyles.secondary(14),
+        headlineSmall: TextStyles.primaryBold(20),
+        headlineMedium: TextStyles.userName(24),
+        bodySmall: TextStyles.secondary(14)
+      ), 
+    
       chipTheme: ChipThemeData(
           labelStyle: TextStyles.primary(Sizes.small),
           shape: RoundedRectangleBorder(
@@ -22,16 +33,16 @@ class AppTheme {
               elevation: 4,
               foregroundColor: AppColor.hoverOnPrimary,
               surfaceTintColor: AppColor.primary,
-              fixedSize: Size(Sizes.subscriptionButtonWidth, Sizes.subscriptionButtonHeight),
+              fixedSize: const Size(Sizes.subscriptionButtonWidth, Sizes.subscriptionButtonHeight),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(Sizes.mediumRadius),
               )
           ),
       ),
-      dividerTheme: DividerThemeData(
+      dividerTheme: const DividerThemeData(
         thickness: Sizes.dividerThickness,
       ),
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
           surfaceTintColor: AppColor.primary,
           iconTheme: IconThemeData(color: AppColor.icon)
       ),
@@ -39,7 +50,7 @@ class AppTheme {
           labelStyle: TextStyles.primary(Sizes.regular),
           unselectedLabelStyle: TextStyles.secondary(Sizes.regular),
           labelColor: AppColor.primaryText,
-          indicator: BoxDecoration(
+          indicator: const BoxDecoration(
               border: Border(
                   bottom: BorderSide(
                     color: AppColor.tabIndicator,

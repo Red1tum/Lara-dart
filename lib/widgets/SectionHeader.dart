@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import '../theme/Sizes.dart';
-import '../theme/TextStyles.dart';
 
 class SectionHeader extends StatelessWidget {
   const SectionHeader({super.key, required this.title, required this.subtitle});
@@ -14,9 +13,9 @@ class SectionHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: TextStyles.primaryBold(Sizes.regularHeader)),
-        SizedBox(height: Sizes.sectionPadding),
-        Text(subtitle, style: TextStyles.secondary(Sizes.small))
+        Text(title, style: Theme.of(context).textTheme.headlineSmall),
+        const SizedBox(height: Sizes.sectionPadding),
+        Text(subtitle, style: Theme.of(context).textTheme.bodySmall)
       ],
     );
   }

@@ -32,7 +32,7 @@ class Appbar extends StatelessWidget {
       bottom: TabBar(
         controller: tabController,
         indicatorSize: TabBarIndicatorSize.tab,
-        tabs: <Widget>[
+        tabs: const <Widget>[
           Tab(
             child: Text(
               Strings.profile,
@@ -52,17 +52,18 @@ class Appbar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Container(
+                  // alignment: Alignment.topCenter,
                   width: Sizes.profileImageWidth,
                   height: Sizes.profileImageHeight,
                   decoration: ShapeDecoration(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(Sizes.profileImageRadius),
                     ),
-                    shadows: [
+                    shadows: const [
                       BoxShadow(
                         color: AppColor.profileShadow,
                         blurRadius: 24,
-                        offset: const Offset(0, 16),
+                        offset: Offset(0, 16),
                         spreadRadius: -16,
                       )
                     ],
@@ -74,7 +75,7 @@ class Appbar extends StatelessWidget {
                 ),
                 Text(user.name,
                     textAlign: TextAlign.center,
-                    style: TextStyles.primaryBold(Sizes.largeHeader)
+                    style: Theme.of(context).textTheme.headlineMedium
                 ),
                 const SizedBox(
                   height: 10,

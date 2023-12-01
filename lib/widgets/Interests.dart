@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lara/resources/Strings.dart';
 import 'package:lara/theme/Sizes.dart';
-import 'package:lara/theme/TextStyles.dart';
 import 'package:lara/widgets/SectionHeader.dart';
 
 class Interests extends StatefulWidget {
@@ -19,18 +18,19 @@ class _Interests extends State<Interests> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.symmetric(horizontal: Sizes.basePadding),
+        padding: const EdgeInsets.symmetric(horizontal: Sizes.basePadding),
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SectionHeader(title: Strings.interests, subtitle: Strings.interestsDescription),
+              const SectionHeader(title: Strings.interests, subtitle: Strings.interestsDescription),
               const SizedBox(height: 8),
               Wrap(
-                spacing: Sizes.chipSpacing, 
+                spacing: Sizes.chipSpacing,
+                runSpacing: 8,
                 children: [
                   for (var interestKey in widget.interests.keys)
                     FilterChip(
-                      label: Text(interestKey, style: TextStyles.primary(Sizes.small)), 
+                      label: Text(interestKey, style: Theme.of(context).textTheme.labelSmall), 
                       selected: widget.interests[interestKey]!, 
                       onSelected: (bool selected) {
                         setState(() {

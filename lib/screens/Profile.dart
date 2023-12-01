@@ -46,13 +46,13 @@ class _ProfileScreen extends State<ProfileScreen>
                       ListView(
                         physics: const NeverScrollableScrollPhysics(),
                         children: [
-                          SizedBox(height: Sizes.elementsPadding),
+                          const SizedBox(height: Sizes.elementsPadding),
                           SubscriptionList(
                             subscriptions: dataProvider.getUsersSubscriptions()
                           ),
-                          SizedBox(height: Sizes.elementsPadding),
+                          const SizedBox(height: Sizes.elementsPadding),
                           RatesAndLimitsList(list: dataProvider.getRatesAndLimits()),
-                          SizedBox(height: Sizes.elementsPadding),
+                          const SizedBox(height: Sizes.elementsPadding),
                           Interests(interestsList: dataProvider.getInterests())
                         ]
                       ),
