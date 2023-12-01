@@ -8,14 +8,14 @@ import 'Colors.dart';
 class AppTheme {
   static ThemeData themeData = ThemeData(
       textTheme: TextTheme(
-        labelMedium: TextStyles.primary(16),
-        labelSmall: TextStyles.primary(14),
-        titleLarge: TextStyles.primary(16),
-        titleMedium: TextStyles.primary(14),
-        titleSmall: TextStyles.secondary(14),
-        headlineSmall: TextStyles.primaryBold(20),
-        headlineMedium: TextStyles.userName(24),
-        bodySmall: TextStyles.secondary(14)
+        labelMedium: TextStyles.primary(Sizes.regular),
+        labelSmall: TextStyles.primary(Sizes.small),
+        titleLarge: TextStyles.primary(Sizes.regular),
+        titleMedium: TextStyles.primary(Sizes.small),
+        titleSmall: TextStyles.secondary(Sizes.small),
+        headlineSmall: TextStyles.primaryBold(Sizes.regularHeader),
+        headlineMedium: TextStyles.userName(Sizes.largeHeader),
+        bodySmall: TextStyles.secondary(Sizes.small)
       ), 
     
       chipTheme: ChipThemeData(

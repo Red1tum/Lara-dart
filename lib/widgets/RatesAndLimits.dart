@@ -34,20 +34,20 @@ class RatesAndLimitsItem extends StatelessWidget {
                         ...[
                           Text(item.title,
                               maxLines: 1,
-                              overflow: TextOverflow.clip,
+                              overflow: TextOverflow.ellipsis,
                               style: Theme.of(context).textTheme.titleLarge
                           ), 
                           Text(
                               item.subtitle!,
                               maxLines: 1,
-                              overflow: TextOverflow.clip,
+                              overflow: TextOverflow.ellipsis,
                               style: Theme.of(context).textTheme.titleSmall)
                         ]
                     else ...[
                          Text(
                               item.title,
                               maxLines: 2,
-                              overflow: TextOverflow.clip,
+                              overflow: TextOverflow.ellipsis,
                               style: Theme.of(context).textTheme.titleLarge),
                     ]
                   ],
