@@ -1,16 +1,24 @@
-# lara
+# Лабораторная работа №1 по Flutter
+Flutter 3.17.0-12.0.pre.21(also tested with 3.16.9)
 
-A new Flutter project.
+Dart 3.3.0 (build 3.3.0-149.0.dev) • DevTools
+2.30.0-dev.4
 
-## Getting Started
+Minimal Dart version of this project 3.1.0 as this major version introduced no changes to the language.
 
-This project is a starting point for a Flutter application.
+### Note about interface
+I decided to keep tab bar instead of name because I think that it is more
+useful to the user as (I think) they already know their name and they
+can't see other's user profile
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
+| Home 1                                             | Home 2                                              |
+|----------------------------------------------------|-----------------------------------------------------|
+| ![First home image](assets/screenshots/home_1.jpg) | ![Second home image](assets/screenshots/home_2.jpg) |
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+| Home rotated                                               |
+|------------------------------------------------------------|
+| ![Rotated home image](assets/screenshots/home_rotated.jpg) |
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Installation
+apks can be found in `releases` section
